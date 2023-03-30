@@ -12,17 +12,16 @@ namespace Lection2
 
         private double _used;
 
-        private WaterTower _waterTower;
+
         public double DebtOfWater { get { return _consumption - _used; }}
 
         public User(double consumption, WaterTower waterTower) {
             if (consumption < 0)
                 throw new ArgumentOutOfRangeException("Consumption should be positive");
             _consumption = consumption;
-            _waterTower = waterTower;
         }
 
-        public abstract void TakeWater() ;
+        public abstract void TakeWater(WaterTower waterTower) ;
 
         public override string? ToString()
         {

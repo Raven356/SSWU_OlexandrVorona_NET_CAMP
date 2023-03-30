@@ -25,7 +25,7 @@ namespace Lection2
 
         public override string? ToString()
         {
-            return base.ToString();
+            return $"Working with user: {_user}, water tower: {_waterTower}, pump: {_pump}";
         }
     }
 }
