@@ -15,6 +15,8 @@ namespace Lection2
 
         public Pump(double power)
         {
+            if (_power < 0)
+                throw new ArgumentOutOfRangeException("Power should be posive");
             _power = power;
         }
 

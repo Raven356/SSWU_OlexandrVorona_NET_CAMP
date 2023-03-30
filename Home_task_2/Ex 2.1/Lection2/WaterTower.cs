@@ -15,6 +15,9 @@ namespace Lection2
 
         public WaterTower(int maxLevelWater, Pump pump)
         {
+            if(maxLevelWater < 0) {
+                throw new ArgumentOutOfRangeException("Max level should be positive");
+            }
             _maxLevel = maxLevelWater;
             _pump = pump;
         }

@@ -8,7 +8,6 @@ namespace Lection2
 {
     internal abstract class Simulator
     {
-        //user
 
         private WaterTower _waterTower;
         private Pump _pump;
