@@ -15,7 +15,7 @@ namespace Lection2
 
         public double DebtOfWater { get { return _consumption - _used; }}
 
-        public User(double consumption, WaterTower waterTower) {
+        public User(double consumption) {
             if (consumption < 0)
                 throw new ArgumentOutOfRangeException("Consumption should be positive");
             _consumption = consumption;
