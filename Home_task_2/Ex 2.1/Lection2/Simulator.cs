@@ -11,13 +11,13 @@ namespace Lection2
 
         private WaterTower _waterTower;
         private Pump _pump;
-        private User _user;
+        private List<User> _users;
 
-        public Simulator(WaterTower waterTower, Pump pump, User user)
+        public Simulator(WaterTower waterTower, Pump pump, List<User> users)
         {
             _waterTower = waterTower;
             _pump = pump;
-            _user = user;
+            _users = users;
         }
 
         //method which is responsible for checking state of water tower
@@ -25,7 +25,7 @@ namespace Lection2
 
         public override string? ToString()
         {
-            return $"Working with user: {_user}, water tower: {_waterTower}, pump: {_pump}";
+            return $"Working with users: {_users}, water tower: {_waterTower}, pump: {_pump}";
         }
     }
 }
