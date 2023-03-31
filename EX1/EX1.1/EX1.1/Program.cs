@@ -1,7 +1,7 @@
 ﻿namespace EX1._1
 {
     internal class Program
-    {
+    {// Вітаю Вас.
         static void Main(string[] args)
         {
            while (true)
