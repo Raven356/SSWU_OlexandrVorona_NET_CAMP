@@ -9,6 +9,7 @@ namespace EX1._2
     internal class LongestColor
     {
         int[,] _arr;
+        //лишнє поле. Це просто результат одного з методів.
         public Cord Cords { get; set; }
 
         public LongestColor(int i, int j)
@@ -25,6 +26,7 @@ namespace EX1._2
                 for(int j = 0;  j < _arr.GetLength(1); j++)
                 {
                     _arr[i, j] = random.Next(0, 16);
+                    // Роздруки тут лишні
                     Console.Write(_arr[i, j] + " ");
                 }
                 Console.WriteLine();
@@ -33,6 +35,7 @@ namespace EX1._2
         public Cord FindLongest()
         {
             int currentColor = -1;
+            
             Cord current = new Cord();
             for(int i = 0; i < _arr.GetLength(0); i++)
             {
@@ -42,6 +45,7 @@ namespace EX1._2
                     {
                         currentColor = _arr[i, j];
                         SetCurrent(current, i, j, 1);
+                        // уникайте такі конструкції
                         continue;
                     }
                     if(currentColor != _arr[i, j])
