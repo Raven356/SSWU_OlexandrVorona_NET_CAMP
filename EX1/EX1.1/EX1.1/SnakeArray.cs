@@ -11,6 +11,7 @@ namespace EX1._1
     {
         private int m = 4;
         private int n = 3;
+        // Порушення інкапсуляції
         public int[,] Arr { get; set; }
         public int M { get { return m; } set {
                 if (value > 0)
@@ -170,7 +171,7 @@ namespace EX1._1
             if (minCol > 0)
                 minCol--;
         }
-
+// Цього методу тут не має бути, натомість- ToString
         public void Print()
         {
             for (int i = 0; i < Arr.GetLength(0); i++)
