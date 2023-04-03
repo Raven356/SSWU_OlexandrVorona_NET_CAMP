@@ -12,7 +12,7 @@ namespace EX3._2
     {
         public int? FindSecondSubString(string phrase, string subString)
         {
-            int index = phrase.ToLower().IndexOf(subString.ToLower(), phrase.ToLower().IndexOf(subString) + 1);
+            int index = phrase.ToLower().IndexOf(subString.ToLower(), phrase.ToLower().IndexOf(subString.ToLower()) + 1);
             return index == -1 ? null : index;
         }
 
