@@ -17,7 +17,7 @@ namespace EX3._2
         }
 
         public int CountUpperStartWords(string phrase)
-        {
+        {// слід використати 2 параметр в Split. Інакше при кількох пропусках між словами будуть сюрпризи
             string[] splitPhrase = phrase.Split(" ");
             int count = splitPhrase.Count(x => Char.IsUpper(x, 0));
             return count;
