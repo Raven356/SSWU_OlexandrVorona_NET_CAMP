@@ -11,7 +11,7 @@ namespace EX4._2
         public List<string> SplitText(string text)
         {
             List<string> split = new List<string>();
-            string[] splits = text.Split(", ");
+            string[] splits = text.Split(", ", StringSplitOptions.RemoveEmptyEntries);
             foreach (string s in splits)
             {
                 split.Add(s);

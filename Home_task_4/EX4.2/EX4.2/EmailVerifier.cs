@@ -28,7 +28,7 @@ namespace EX4._2
             {
                 if (x.Contains("@"))
                 {
-                        var splited = x.Split("@");
+                        var splited = x.Split("@", StringSplitOptions.RemoveEmptyEntries);
                         string domainPart = splited[splited.Length-1];
 
                         StringBuilder localBuild = new StringBuilder();
@@ -62,7 +62,7 @@ namespace EX4._2
         {
             if(localPart.Contains("/"))
                 return true;
-            string[] splited = localPart.Split("\"");
+            string[] splited = localPart.Split("\"", StringSplitOptions.RemoveEmptyEntries);
             int start = 0;
             if (splited[0].Length != 0 && splited.Length > 1)
                 start = 1;

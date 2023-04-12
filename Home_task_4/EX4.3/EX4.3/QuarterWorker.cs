@@ -20,17 +20,17 @@ namespace EX4._3
         {
             for (int i = 0; i< _quartersInfo.Count; i++)
             {
-                string[] splited = _quartersInfo[i][0].Split(" ");
+                string[] splited = _quartersInfo[i][0].Split(" ", StringSplitOptions.RemoveEmptyEntries);
                 if (int.Parse(splited[splited.Length - 1]) == quarterNumber){
                     for(int j = 1; j < _quartersInfo[i].Count; j++)
                     {
-                        splited = _quartersInfo[i][j].Split("; ");
+                        splited = _quartersInfo[i][j].Split("; ", StringSplitOptions.RemoveEmptyEntries);
 
                         foreach (var x in splited)
                         {
                             if(x.Contains("Flat number:") || x.Contains("Номер квартири:"))
                             {
-                                if(int.Parse(x.Split(": ")[1]) == flatNumber)
+                                if(int.Parse(x.Split(": ", StringSplitOptions.RemoveEmptyEntries)[1]) == flatNumber)
                                 {
                                     return _quartersInfo[i][j];
                                 }
@@ -46,19 +46,19 @@ namespace EX4._3
         {
             List<string> report = new List<string>();
             for(int i = 0; i < _quartersInfo.Count; i++) {
-                string[] splited = _quartersInfo[i][0].Split(" ");
+                string[] splited = _quartersInfo[i][0].Split(" ", StringSplitOptions.RemoveEmptyEntries);
                 if (int.Parse(splited[splited.Length - 1]) == quarterNumber)
                 {
                     for(int j = 1; j < _quartersInfo[i].Count; j++)
                     {
-                        splited = _quartersInfo[i][j].Split("; ");
+                        splited = _quartersInfo[i][j].Split("; ", StringSplitOptions.RemoveEmptyEntries);
                         StringBuilder stringBuilder = new StringBuilder();
                         foreach(var x in splited)
                         {
                             DateTime dateTime;
                             if(x == splited[splited.Length - 1])
                             {
-                                string[] dateSplit = x.Split(", ");
+                                string[] dateSplit = x.Split(", ", StringSplitOptions.RemoveEmptyEntries);
                                 foreach(var y in dateSplit)
                                 {
                                     dateTime = DateTime.Parse(y);
@@ -90,9 +90,9 @@ namespace EX4._3
                 {
                     for (int j = 1; j < _quartersInfo[i].Count; j++)
                     {
-                        splited = _quartersInfo[i][j].Split("; ");
-                        int last = int.Parse(splited[3].Split(": ")[1]);
-                        int now = int.Parse(splited[4].Split(": ")[1]);
+                        splited = _quartersInfo[i][j].Split("; ", StringSplitOptions.RemoveEmptyEntries);
+                        int last = int.Parse(splited[3].Split(": ", StringSplitOptions.RemoveEmptyEntries)[1]);
+                        int now = int.Parse(splited[4].Split(": ", StringSplitOptions.RemoveEmptyEntries)[1]);
                         if (max < (now - last) * price)
                         {
                             max = (now - last) * price;
@@ -109,17 +109,17 @@ namespace EX4._3
             int number = -1;
             for(int i = 0; i < _quartersInfo.Count;i++)
             {
-                string[] splited = _quartersInfo[i][0].Split(" ");
+                string[] splited = _quartersInfo[i][0].Split(" ", StringSplitOptions.RemoveEmptyEntries);
                 if (int.Parse(splited[splited.Length - 1]) == quarterNumber)
                 {
                     for (int j = 1; j < _quartersInfo[i].Count; j++)
                     {
-                        splited = _quartersInfo[i][j].Split("; ");
-                        int last = int.Parse(splited[3].Split(": ")[1]);
-                        int now = int.Parse(splited[4].Split(": ")[1]);
+                        splited = _quartersInfo[i][j].Split("; ", StringSplitOptions.RemoveEmptyEntries);
+                        int last = int.Parse(splited[3].Split(": ", StringSplitOptions.RemoveEmptyEntries)[1]);
+                        int now = int.Parse(splited[4].Split(": ", StringSplitOptions.RemoveEmptyEntries)[1]);
                         if (last == now)
                         {
-                            number = int.Parse(splited[0].Split(": ")[1]);
+                            number = int.Parse(splited[0].Split(": ", StringSplitOptions.RemoveEmptyEntries)[1]);
                         }
                     }
                 }
@@ -136,9 +136,9 @@ namespace EX4._3
                 int sum = 0;
                 for (int i = 0; i < _quartersInfo.Count; i++)
                 {
-                    splited = _quartersInfo[i][j].Split("; ");
-                    int last = int.Parse(splited[3].Split(": ")[1]);
-                    int now = int.Parse(splited[4].Split(": ")[1]);
+                    splited = _quartersInfo[i][j].Split("; ", StringSplitOptions.RemoveEmptyEntries);
+                    int last = int.Parse(splited[3].Split(": ", StringSplitOptions.RemoveEmptyEntries)[1]);
+                    int now = int.Parse(splited[4].Split(": ", StringSplitOptions.RemoveEmptyEntries)[1]);
                     sum += now - last;
                 }
                 if(splited.Length != 0)
@@ -154,7 +154,7 @@ namespace EX4._3
             {
                 DateTime now = DateTime.Now;
                 string[] splited = _quartersInfo[_quartersInfo.Count - 1][i].Split("; ");
-                string[] dateSplit = splited[splited.Length - 1].Split(", ");
+                string[] dateSplit = splited[splited.Length - 1].Split(", ", StringSplitOptions.RemoveEmptyEntries);
                 DateTime last = DateTime.Parse(dateSplit[dateSplit.Length - 1]);
                 TimeSpan time = now - last;
                 answer.Add(splited[0] + ", Time spent - " + time.TotalDays);

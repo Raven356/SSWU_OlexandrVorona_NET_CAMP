@@ -10,7 +10,7 @@ namespace EX4._1
     {
         public List<string> SplitText(string text) { 
             List<string> split = new List<string>();
-            string[] splits = text.Split("\n");
+            string[] splits = text.Split("\n", StringSplitOptions.RemoveEmptyEntries);
             foreach (string line in splits) { 
                 split.Add(line);
             }
