@@ -8,7 +8,7 @@ namespace EX4._2
         {
             TextSpliter textSpliter = new TextSpliter();
             EmailVerifier emailVerifier = new EmailVerifier();
-            List<string> emails = textSpliter.SplitText("masmads@, (ASAASAD)A@gmail.com, \"asd@laksd@\"@as@da.com, simple@example.com, very.common@example.com, " +
+            List<string> emails = textSpliter.SplitText("\"\"\"sasad@gmail.com, masmads@, (ASAASAD)A@gmail.com, \"asd@laksd@\"@as@da.com, simple@example.com, very.common@example.com, " +
             "disposable.style.email.with+symbol@example.com, Abc.example.com, A@b@c@example.com, just\"not\"right@example.com, " +
             "\"john..doe\"@example.org, john..doe@example.org, a\"b(c)d,e:f;g<h>i[j\\k]l@example.com, a\"b(c)d,e:f;g<h>i[j\\k]l$example.com, " +
             "this\\ still\\\"not\\\\allowed@example.com, 1234567890123456789012345678901234567890123456789012345678901234+x@example.com, " +

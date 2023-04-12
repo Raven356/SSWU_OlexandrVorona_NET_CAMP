@@ -79,7 +79,7 @@ namespace EX4._2
         {
             if(localPart.Contains("/"))
                 return true;
-            string[] splited = localPart.Split("\"", StringSplitOptions.RemoveEmptyEntries);
+            string[] splited = localPart.Split("\"");
             int start = 0;
             if (splited[0].Length != 0 && splited.Length > 1)
                 start = 1;
@@ -87,6 +87,10 @@ namespace EX4._2
 
             for(int i = start; i < splited.Length; i += 2)
             {
+                if (splited[i].Length == 0)
+                {
+                    return true;
+                }
                 for(int j = 0; j < _restrictedSpecialSymbols.Count - 1; j++)
                 {
                     if (splited[i].Contains(_restrictedSpecialSymbols[j]))
