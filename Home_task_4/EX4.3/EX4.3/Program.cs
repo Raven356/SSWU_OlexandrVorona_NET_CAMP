@@ -14,7 +14,8 @@
                 QuarterWorker quarterWorker = new QuarterWorker(list);
                 Console.WriteLine(quarterWorker.FindFlat(1, 3));
                 Console.WriteLine(quarterWorker.GetSurnameWithMaxDept(1, 12));
-                Console.WriteLine(quarterWorker.GetFlatNumberWithZero(1));
+                int flatNumber = quarterWorker.GetFlatNumberWithZero(1);
+                Console.WriteLine(flatNumber != -1 ? flatNumber : "Wrong quater!");
                 var x = quarterWorker.GetPaymentSumForFlats(1);
                 foreach (var item in x)
                 {
