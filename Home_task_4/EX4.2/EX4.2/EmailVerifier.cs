@@ -26,9 +26,10 @@ namespace EX4._2
 
             foreach (var x in enteredText)
             {
-                if (x.Contains("@"))
+                string withoutComments = DeleteComments(x);
+                if (withoutComments.Contains("@"))
                 {
-                        var splited = x.Split("@", StringSplitOptions.RemoveEmptyEntries);
+                        var splited = withoutComments.Split("@");
                         string domainPart = splited[splited.Length-1];
 
                         StringBuilder localBuild = new StringBuilder();
@@ -42,13 +43,16 @@ namespace EX4._2
 
                         string localPart = localBuild.ToString();
 
-                        if (localPart.Length > 64 || localPart.First().Equals('.') || localPart.Last().Equals('.')
-                            ||CheckForSpecialInDomain(domainPart) || CheckForSpecialInLocal(localPart, domainPart))
+                    if (localPart.Length != 0)
+                    {
+                        if (domainPart.Length == 0 || localPart.Length > 64 || localPart.First().Equals('.') || localPart.Last().Equals('.')
+                            || CheckForSpecialInDomain(domainPart) || CheckForSpecialInLocal(localPart, domainPart))
                         {
                             _lexems.Add(localPart + "@" + domainPart);
                         }
                         else
-                            _emails.Add(x);
+                            _emails.Add(withoutComments);
+                    }
                 }
             }
             if(_lexems.Count> 0)
@@ -56,6 +60,19 @@ namespace EX4._2
             if (_emails.Count > 0)
                 _emails.Add("End of emails\n");
             return new List<string>(_lexems.Concat(_emails));
+        }
+
+        private string DeleteComments(string text)
+        {
+            int startComment = 0;
+            int endComment = 0;
+
+            while((startComment = text.IndexOf("(")) != -1 && (endComment = text.IndexOf(")")) != -1)
+            {
+                text = text.Remove(startComment, endComment - startComment + 1);
+            }
+
+            return text;
         }
 
         private bool CheckForSpecialInLocal(string localPart, string domainPart)
