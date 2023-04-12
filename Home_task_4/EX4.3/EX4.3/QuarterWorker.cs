@@ -85,7 +85,7 @@ namespace EX4._3
             int max = 0;
             for(int i = 0; i < _quartersInfo.Count; i++)
             {
-                string[] splited = _quartersInfo[i][0].Split(" ");
+                string[] splited = _quartersInfo[i][0].Split(" ", StringSplitOptions.RemoveEmptyEntries);
                 if (int.Parse(splited[splited.Length - 1]) == quarterNumber)
                 {
                     for (int j = 1; j < _quartersInfo[i].Count; j++)
@@ -153,7 +153,7 @@ namespace EX4._3
             for(int i = 1; i < _quartersInfo[_quartersInfo.Count - 1].Count; i++)
             {
                 DateTime now = DateTime.Now;
-                string[] splited = _quartersInfo[_quartersInfo.Count - 1][i].Split("; ");
+                string[] splited = _quartersInfo[_quartersInfo.Count - 1][i].Split("; ", StringSplitOptions.RemoveEmptyEntries);
                 string[] dateSplit = splited[splited.Length - 1].Split(", ", StringSplitOptions.RemoveEmptyEntries);
                 DateTime last = DateTime.Parse(dateSplit[dateSplit.Length - 1]);
                 TimeSpan time = now - last;
