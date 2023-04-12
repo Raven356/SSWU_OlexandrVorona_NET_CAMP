@@ -32,7 +32,7 @@ namespace EX4._3
                             {
                                 if(int.Parse(x.Split(": ", StringSplitOptions.RemoveEmptyEntries)[1]) == flatNumber)
                                 {
-                                    return _quartersInfo[i][j];
+                                    return _quartersInfo[i][j].Split(" ", StringSplitOptions.RemoveEmptyEntries).ToList().Aggregate((x, y) => x + " " + y);
                                 }
                             }
                         }
@@ -56,6 +56,7 @@ namespace EX4._3
                         foreach(var x in splited)
                         {
                             DateTime dateTime;
+
                             if(x == splited[splited.Length - 1])
                             {
                                 string[] dateSplit = RemoveEmptyOnStart(x.Split(", ", StringSplitOptions.RemoveEmptyEntries));
@@ -69,7 +70,8 @@ namespace EX4._3
                             }
                             else if (!x.Contains("Address"))
                             {
-                                stringBuilder.Append(x + ";\t");
+                                string control = (x.Split(" ", StringSplitOptions.RemoveEmptyEntries)).ToList().Aggregate((x, y) => x + " " + y);
+                                stringBuilder.Append(control + ";\t");
                             }
                         }
                         report.Add(stringBuilder.ToString());
