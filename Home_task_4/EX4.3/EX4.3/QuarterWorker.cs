@@ -159,7 +159,7 @@ namespace EX4._3
                 string[] dateSplit = RemoveEmptyOnStart(splited[splited.Length - 1].Split(", ", StringSplitOptions.RemoveEmptyEntries));
                 DateTime last = DateTime.Parse(dateSplit[dateSplit.Length - 1]);
                 TimeSpan time = now - last;
-                answer.Add(splited[0] + ", Time spent - " + time.TotalDays);
+                answer.Add(splited[0] + ", Time spent - " + (int)time.TotalDays);
             }
             return answer;
         }

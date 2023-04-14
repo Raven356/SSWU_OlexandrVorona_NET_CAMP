@@ -1,0 +1,10 @@
+Amount of flats: 4; Number of quater: 1
+Flat number: 1; Address:  x; Surname: Kte;  Last: 12000; Now: 13000; 2000.01.12, 12.02.2000, 12.03.2000
+Flat number: 2; Address: x; Surname:  Ktx; Last:  12009; Now:  16000; 12.01.2000, 12.02.2000, 12.03.2000
+Flat number:  3; Address: x; Surname: Ktc; Last: 12080; Now: 13000; 12.01.2000, 12.02.2000, 12.03.2000
+Flat number: 4; Address: x; Surname: Ktd; Last: 12800; Now: 12800; 12.01.2000, 12.02.2000, 12.03.2000
+Amount of flats: 4; Number of quater: 2
+Flat number: 1; Address: x; Surname: Kte; Last: 13000;  Now: 14000; 12.01.2003, 12.02.2003, 12.03.2003
+Flat number: 2; Address:  x; Surname: Ktx; Last: 16009; Now: 18000; 12.01.2003,  12.02.2003, 12.03.2003
+Flat number: 3; Address: x; Surname: Ktc; Last: 13000; Now: 15000; 12.01.2003, 12.02.2003, 12.03.2003
+Flat number: 4; Address: x; Surname: Ktd; Last: 12800; Now: 12800; 2003.01.12, 12.02.2003, 12.03.2003
