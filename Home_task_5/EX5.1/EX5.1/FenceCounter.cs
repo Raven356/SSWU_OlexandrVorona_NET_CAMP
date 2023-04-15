@@ -14,16 +14,22 @@ namespace EX5._1
         public FenceCounter(List<Point> points)
         {
             _points = points;
-            
-            _points.Sort(new PointComparer());
         }
 
         public int FindShortestFence()
         {
             int length = 0;
-            for(int i = 1; i < _points.Count; i++)
+            for(int i = 0; i < _points.Count - 1; i++)
             {
-                length += (int)Math.Sqrt(Math.Pow(_points[i].X - _points[i-1].X, 2) + Math.Pow(_points[i].Y - _points[i - 1].Y, 2));
+                int currLength = int.MaxValue;
+                for (int j = i + 1; j < _points.Count; j++) {
+                    int temp = (int)Math.Sqrt(Math.Pow(_points[j].X - _points[i].X, 2) + Math.Pow(_points[j].Y - _points[i].Y, 2));
+                    if (temp < currLength) {
+                        currLength = temp;
+                        (_points[i + 1], _points[j]) = (_points[j], _points[i + 1]);
+                    }
+                }
+                length += currLength;
             }
             length += (int)Math.Sqrt(Math.Pow(_points[_points.Count - 1].X - _points[0].X, 2) + Math.Pow(_points[_points.Count - 1].Y - _points[0].Y, 2));
             return length;
