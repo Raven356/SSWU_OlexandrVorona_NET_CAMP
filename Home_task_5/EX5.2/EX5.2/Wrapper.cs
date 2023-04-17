@@ -31,13 +31,13 @@ namespace EX5._2
                 {
                     AddGoods(divisions[i].Goods, box.Boxes[box.Boxes.Count - 1]);
                 }
-                box.Height = box.GetHeightOfSubBoxes();
-                box.Width = box.GetWidth();
-                box.Length = box.GetLength();
+                box.Boxes[box.Boxes.Count - 1].Height = box.Boxes[box.Boxes.Count - 1].GetHeightOfSubBoxes();
+                box.Boxes[box.Boxes.Count - 1].Width = box.Boxes[box.Boxes.Count - 1].GetWidth();
+                box.Boxes[box.Boxes.Count - 1].Length = box.Boxes[box.Boxes.Count - 1].GetLength();
             }
-            box.Boxes[box.Boxes.Count - 1].Height = box.Boxes[box.Boxes.Count - 1].GetHeightOfSubBoxes();
-            box.Boxes[box.Boxes.Count - 1].Width = box.Boxes[box.Boxes.Count - 1].GetWidth();
-            box.Boxes[box.Boxes.Count - 1].Length = box.Boxes[box.Boxes.Count - 1].GetLength();
+            box.Height = box.GetHeightOfSubBoxes();
+            box.Width = box.GetWidth();
+            box.Length = box.GetLength();
         }
 
         private void AddGoods(List<Goods> goods, Box box)
