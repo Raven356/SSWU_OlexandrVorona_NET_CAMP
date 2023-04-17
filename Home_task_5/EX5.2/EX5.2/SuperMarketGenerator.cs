@@ -10,26 +10,30 @@ namespace EX5._2
     {
         private List<string> _goodsNames = new List<string>();
         public List<string> GoodsNames { get { return _goodsNames; } }
-        public SuperMarket Generate()
+        public SuperMarket Generate(int depth = 10, bool userInserted = false)
         {
             Random rnd = new Random();
-            SuperMarket superMarket = new SuperMarket(GenerateDivisions(rnd.Next(1, 10)), "supermarket_" + (rnd.Next(1, 1000) + rnd.Next(1, 1000)));
+            SuperMarket superMarket = new SuperMarket(GenerateDivisions(rnd.Next(1, 10), depth, userInserted), "supermarket_" + (rnd.Next(1, 1000) + rnd.Next(1, 1000)));
             return superMarket;
         }
 
-        private List<Division> GenerateDivisions(int amount, int count = 0)
+        private List<Division> GenerateDivisions(int amount, int depth, bool userInserted, int count = 0)
         {
             List<Division> result = new List<Division>();
             Random rand = new Random();
             for(int i = 0; i < amount; i++)
             {
-                int choice = rand.Next(1, 3);
+                int choice = 1;
+                if(!userInserted)
+                    choice = rand.Next(1, 3);
+                if (userInserted && count > depth)
+                    choice = 2;
                 Division division = new Division();
-                if(choice == 1 && count <= 10)
+                if(choice == 1 && count <= depth)
                 {
-                    division = new Division(GenerateDivisions(rand.Next(1, 5), count + 1), "division_" + (rand.Next(1, 100) + rand.Next(1, 100)));
+                    division = new Division(GenerateDivisions(rand.Next(1, 5), depth, userInserted, count + 1), "division_" + (rand.Next(1, 100) + rand.Next(1, 100)));
                 }
-                else if(choice == 2 || count > 10)
+                else if(choice == 2 || count > depth)
                 {
                     division = new Division(GenerateGoods(rand.Next(1, 5)), "division_" + (rand.Next(1, 100) + rand.Next(1, 100)));
                 }
