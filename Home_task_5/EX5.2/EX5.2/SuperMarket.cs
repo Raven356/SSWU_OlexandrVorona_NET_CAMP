@@ -11,10 +11,6 @@ namespace EX5._2
         private List<Division> _divisions;
         private string _name;
 
-        public Division this[int i]
-        {
-            get { return _divisions[i]; }
-        }
 
         public string Name { get { return _name; } }
 

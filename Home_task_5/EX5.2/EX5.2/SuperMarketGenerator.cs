@@ -13,7 +13,7 @@ namespace EX5._2
         public SuperMarket Generate()
         {
             Random rnd = new Random();
-            SuperMarket superMarket = new SuperMarket(GenerateDivisions(rnd.Next(1, 10)), "x_" + (rnd.Next(1, 1000) + rnd.Next(1, 1000)));
+            SuperMarket superMarket = new SuperMarket(GenerateDivisions(rnd.Next(1, 10)), "supermarket_" + (rnd.Next(1, 1000) + rnd.Next(1, 1000)));
             return superMarket;
         }
 
@@ -27,11 +27,11 @@ namespace EX5._2
                 Division division = new Division();
                 if(choice == 1 && count <= 10)
                 {
-                    division = new Division(GenerateDivisions(rand.Next(1, 5), count + 1), "x_" + (rand.Next(1, 100) + rand.Next(1, 100)));
+                    division = new Division(GenerateDivisions(rand.Next(1, 5), count + 1), "division_" + (rand.Next(1, 100) + rand.Next(1, 100)));
                 }
                 else if(choice == 2 || count > 10)
                 {
-                    division = new Division(GenerateGoods(rand.Next(1, 5)), "x_" + (rand.Next(1, 100) + rand.Next(1, 100)));
+                    division = new Division(GenerateGoods(rand.Next(1, 5)), "division_" + (rand.Next(1, 100) + rand.Next(1, 100)));
                 }
                 result.Add(division);
             }
@@ -44,7 +44,7 @@ namespace EX5._2
             Random rand = new Random();
             for(int i = 0; i < amount; i++)
             {
-                Goods goods = new Goods(rand.Next(1, 11), "x_" + (rand.Next(1, 1000) + rand.Next(1, 1000)));
+                Goods goods = new Goods(rand.Next(1, 11), rand.Next(1, 11), rand.Next(1, 10), "goods_" + (rand.Next(1, 1000) + rand.Next(1, 1000)));
                 _goodsNames.Add(goods.Name);
                 result.Add(goods);
             }

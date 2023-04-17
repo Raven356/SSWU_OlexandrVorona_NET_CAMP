@@ -17,8 +17,11 @@
             Console.WriteLine("Enter goods which you want to find:");
             string answer = Console.ReadLine();
             PathFinder pathFinder = new PathFinder();
-            Console.WriteLine(pathFinder.FindPath(wrapper.Box, answer, wrapper.Box.Size));
-            Console.WriteLine();
+            string path = pathFinder.FindPath(wrapper.Box, answer);
+            if(path != null)
+                Console.WriteLine("\n" + path);
+            else
+                Console.WriteLine("\nGoods not found!");
         }
     }
 }

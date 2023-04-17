@@ -8,13 +8,21 @@ namespace EX5._2
 {
     internal class Goods
     {
-        private double _size;
+        private double _height;
+        private double _width;
+        private double _length;
         private string _name;
-        public double Size { get { return _size; } }
+        public double Height { get { return _height; } }
         public string Name { get { return _name; } }
-        public Goods(double size, string name)
+
+        public double Width { get => _width; set => _width = value; }
+        public double Length { get => _length; set => _length = value; }
+
+        public Goods(double height, double length, double width, string name)
         {
-            _size = size;
+            _height = height;
+            _width = width;
+            _length = length;
             _name = name;
         }
     }

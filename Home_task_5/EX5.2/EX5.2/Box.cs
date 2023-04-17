@@ -9,14 +9,19 @@ namespace EX5._2
     internal class Box
     {
         private string _name;
-        private double _size;
+        private double _height;
+        private double _width;
+        private double _length;
         private List<Box> _boxes;
         private Goods _goods;
 
         public string Name { get { return _name; } }
         public List<Box> Boxes { get { return _boxes; } }
         public Goods Goods { get { return _goods; } }
-        public double Size { get { return _size; } set { _size = value; } }
+        public double Height { get { return _height; } set { _height = value; } }
+
+        public double Width { get => _width; set => _width = value; }
+        public double Length { get => _length; set => _length = value; }
 
         public Box(string name, List<Box> boxes)
         {
@@ -28,17 +33,29 @@ namespace EX5._2
         {
             _goods = goods;
             _name = goods.Name;
-            _size = goods.Size;
+            _height = goods.Height;
+            _width = goods.Width;
+            _length = goods.Length;
         }
 
-        public double GetSizeOfSubBoxes()
+        public double GetHeightOfSubBoxes()
         {
-            double size = 0;
+            double height = 0;
             foreach(var x in _boxes)
             {
-                size += x.Size;
+                height += x.Height;
             }
-            return size;
+            return height;
+        }
+
+        public double GetLength()
+        {
+            return _boxes.Max(x => x.Length);
+        }
+
+        public double GetWidth()
+        {
+            return _boxes.Max(x => x.Width);
         }
     }
 }
