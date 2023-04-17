@@ -71,7 +71,7 @@ namespace EX4._3
                             else if (!x.Contains("Address"))
                             {
                                 string control = (x.Split(" ", StringSplitOptions.RemoveEmptyEntries)).ToList().Aggregate((x, y) => x + " " + y);
-                                stringBuilder.Append(control + ";\t");
+                                stringBuilder.Append(String.Format("{0,14};\t", control));
                             }
                         }
                         report.Add(stringBuilder.ToString());
