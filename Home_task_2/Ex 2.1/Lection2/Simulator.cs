@@ -11,6 +11,7 @@ namespace Lection2
 
         private WaterTower _waterTower;
         private Pump _pump;
+        // якщо вже працюємо зі списком, то варто надати можливість додавати і вилучати користувачів.
         private List<User> _users;
 // А хто має створювати ці екземпляри, який клас?
         public Simulator(WaterTower waterTower, Pump pump, List<User> users)
