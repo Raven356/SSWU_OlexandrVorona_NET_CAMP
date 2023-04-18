@@ -12,11 +12,12 @@ namespace Lection2
         private WaterTower _waterTower;
         private Pump _pump;
         private List<User> _users;
-
+// А хто має створювати ці екземпляри, який клас?
         public Simulator(WaterTower waterTower, Pump pump, List<User> users)
         {
             _waterTower = waterTower;
             _pump = pump;
+            //тут треба глибоку копію
             _users = users;
         }
 
