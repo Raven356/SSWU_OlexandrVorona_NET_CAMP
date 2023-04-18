@@ -12,7 +12,7 @@ namespace Lection2
 
         private double _used;
 
-
+// у Вас користувач не може мати багато бажань. тільки 1 раз при створенні)
         public double DebtOfWater { get { return _consumption - _used; }}
 
         public User(double consumption) {
