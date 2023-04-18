@@ -19,7 +19,7 @@ namespace Lection2
                 throw new ArgumentOutOfRangeException("Power should be posive");
             _power = power;
         }
-
+//задумайтесь, коли спрацьовуватиме цей метод.
         public abstract void ChangeState();
 
         public override string? ToString()
