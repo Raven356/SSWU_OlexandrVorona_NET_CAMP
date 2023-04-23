@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace EX4._2
 {
+
+// тут все добре, але константи типу 64 треба виносити в відкрите поле.
     internal class EmailVerifier
     {
         private List<string> _emails;
