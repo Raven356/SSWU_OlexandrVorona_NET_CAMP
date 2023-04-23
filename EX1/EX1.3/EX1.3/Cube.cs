@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace EX1._3
 {
     internal class Cube
-    {
+    {// не враховано подібність алгоритму на дослідженні грані.
         int[,,] _cube;
 
         public Cords StartCords { get; set; } = new Cords();
@@ -16,7 +16,7 @@ namespace EX1._3
         
 
         public Cube(int size)
-        {
+        {// Це тільки один із способів згенерувати куб.
             if(size <= 0)
             {
                 throw new ArgumentOutOfRangeException("Size should be > 0 try again!");
@@ -44,7 +44,7 @@ namespace EX1._3
                     for (int l = 0; l < _cube.GetLength(2); l++)
                     {
                         if (_cube[i, j, l] == 0)
-                        {
+                        {// Ви губите стартову точку
                             bool contains = false;
                             StartCords.X = i;
                             StartCords.Y = j;
