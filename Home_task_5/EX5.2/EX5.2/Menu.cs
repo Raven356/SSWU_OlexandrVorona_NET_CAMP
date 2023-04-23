@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace EX5._2
 {
     internal class Menu
-    {
+    {// на жаль, продемонстровано тільки однорівневу конструкцію.
         public void StartMenu()
         {
             Console.WriteLine("Do you want to enter number of subdivisions? y/n");
