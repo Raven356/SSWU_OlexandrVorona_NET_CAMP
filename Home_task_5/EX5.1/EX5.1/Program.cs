@@ -1,9 +1,8 @@
 ﻿using System.Drawing;
-
-namespace EX5._1
+//Olexandr	Vorona		90	10	15	95	95	98	75	103,1. Вітаю Вас в 2 турі.
 {
     internal class Program
-    {
+    {// Виясніть для себе переваги і недоліки цього алгоритму порівняно з іншими. Алгоритм реалізовано добре.
         static void Main(string[] args)
         {
             FenceCounter fenceCounter = new FenceCounter(new List<Point>() { new Point(3, 4), new Point(4, 3), new Point(3, 2), new Point(4, 1)});

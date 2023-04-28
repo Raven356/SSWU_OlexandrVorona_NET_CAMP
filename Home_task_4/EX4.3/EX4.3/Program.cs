@@ -1,7 +1,7 @@
 ﻿namespace EX4._3
 {
     internal class Program
-    {
+    {// відформатовано добре.
         static void Main(string[] args)
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
