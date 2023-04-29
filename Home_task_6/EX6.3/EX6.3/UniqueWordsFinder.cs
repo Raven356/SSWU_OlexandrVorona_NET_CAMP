@@ -11,7 +11,7 @@ namespace EX6._3
         //return words that doesn't have duplicates
         public IEnumerable<string> FindWithoutDuplicates(string text)
         {
-            string[] words = text.Split(' ', ',', '.', '!', '?', ';', ':');
+            string[] words = text.ToLower().Split(' ', ',', '.', '!', '?', ';', ':');
             foreach (string word in words)
             {
                 if (words.Count(x => x.Equals(word)) == 1 && !word.Equals(""))
@@ -24,7 +24,7 @@ namespace EX6._3
         //return only unique words
         public IEnumerable<string> FindUnique(string text)
         {
-            string[] words = text.Split(' ', ',', '.', '!', '?', ';', ':');
+            string[] words = text.ToLower().Split(' ', ',', '.', '!', '?', ';', ':');
             for(int i = 0; i < words.Length; i++)
             {
                 bool returned = false;
