@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace EX6._2
-{
+{// Яка ефективність yield?
     internal class SortedArray
     {
         //sort by adding arraus into one
