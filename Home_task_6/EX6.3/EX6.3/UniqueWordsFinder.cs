@@ -10,7 +10,7 @@ namespace EX6._3
     {
         //return words that doesn't have duplicates
         public IEnumerable<string> FindWithoutDuplicates(string text)
-        {
+        {// Краще Split використати з 2 параметрами.
             string[] words = text.ToLower().Split(' ', ',', '.', '!', '?', ';', ':');
             foreach (string word in words)
             {
