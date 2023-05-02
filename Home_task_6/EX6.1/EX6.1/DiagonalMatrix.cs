@@ -24,7 +24,7 @@ namespace EX6._1
                 }
             }
         }
-
+// алгоритмічно неправильно!
         public IEnumerator GetEnumerator()
         {
             Point min = new Point(0, 0);
