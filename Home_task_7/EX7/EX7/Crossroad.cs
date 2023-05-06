@@ -40,7 +40,7 @@ namespace EX7
         private void OnTimerElapsed(object sender, ElapsedEventArgs e)
         {
             int interval = (int)_timer.Interval;
-            if (_current >= _endTime || _current +  interval>= _endTime)
+            if (_current > _endTime || _current +  interval > _endTime)
             {
                 _timer.Stop();
                 return;
