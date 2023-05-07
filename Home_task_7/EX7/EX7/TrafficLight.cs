@@ -13,20 +13,15 @@ namespace EX7
         Green,
         Yellow
     }
-    internal class TrafficLight
+    internal class TrafficLight : AbstractTrafficLight
     {
-        private string _name;
-        private Color _color;
-        public TrafficLight(Color color, string name)
+
+        public TrafficLight(Color color, string name) : base(color, name)
         {
-            _color = color;
-            _name = name;
+
         }
 
-        public string Name { get => _name; }
-        internal Color LightColor { get => _color; }
-
-        public void ChangeColor()
+        public override void ChangeColor()
         {
             if(_color == Color.Yellow)
             {
@@ -36,9 +31,6 @@ namespace EX7
             _color++;
         }
 
-        public override string? ToString()
-        {
-            return $"Name: {_name} Color: {_color}";
-        }
+
     }
 }
