@@ -6,6 +6,14 @@ using System.Threading.Tasks;
 
 namespace EX7
 {
+    enum Color
+    {
+        Red,
+        RedYellow,
+        Green,
+        Yellow
+    }
+
     internal abstract class AbstractTrafficLight
     {
         protected string _name;
