@@ -156,8 +156,8 @@ namespace EX8
                 opposite = new OneDirectionalTrafficLight(oppositeDirection, color);
             }
 
-            _crossroad.AddTrafficLight(abstractTrafficLight);
-            _crossroad.AddTrafficLight(opposite);
+            Controller.AddTrafficLight(abstractTrafficLight, Controller.Crossroads.IndexOf(_crossroad));
+            Controller.AddTrafficLight(opposite, Controller.Crossroads.IndexOf(_crossroad));
 
             directionTextBox.Clear();
             redRadio.Checked = false;
