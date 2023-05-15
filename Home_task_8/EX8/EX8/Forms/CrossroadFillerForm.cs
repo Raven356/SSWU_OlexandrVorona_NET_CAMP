@@ -19,7 +19,7 @@ namespace EX8
 
         private void CrossroadFillerForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if(Controller.Crossroads.Last().Lights.Count == 0) { 
+            if(Controller.Crossroads.Count > 0 && Controller.Crossroads.Last().Lights.Count == 0) { 
                 List<Crossroad> crossroads = Controller.Crossroads;
                 crossroads.RemoveAt(crossroads.IndexOf(crossroads.Last()));
                 Controller.Crossroads = crossroads;
