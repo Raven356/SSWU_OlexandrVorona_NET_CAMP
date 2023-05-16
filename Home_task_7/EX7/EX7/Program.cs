@@ -1,5 +1,5 @@
 ﻿namespace EX7
-{
+{// Програма не працююча!
     internal class Program
     {
         static void Main(string[] args)
