@@ -11,33 +11,28 @@ namespace EX11._1
         public void Sort(T[] arr, int first, int last, int choice)
         {
             int i;
+            if (first >= last)
+            {
+                return;
+            }
             switch (choice)
             {
                 case 1:
-                    if(first >= last)
-                    {
-                        return;
-                    }
+                    
                     i = FirstElementPartition(arr, first, last);
-                    Sort(arr, first, i - 1, choice);
-                    Sort(arr, i + 1, last, choice);
+
                     break;
                 case 2:
-                    if(first >= last) { return; }
                     i = RandomizedPartition(arr, first, last);
-                    Sort(arr, first, i - 1, choice);
-                    Sort(arr, i + 1, last, choice);
                     break;
                 case 3:
-                    if(first >= last)
-                    {
-                        return;
-                    }
                     i = MedianaPartition(arr, first, last);
-                    Sort(arr, first, i - 1, choice);
-                    Sort(arr, i + 1, last, choice);
                     break;
+                default:
+                    return;
             }
+            Sort(arr, first, i - 1, choice);
+            Sort(arr, i + 1, last, choice);
         }
 
         private int RandomizedPartition(T[] arr, int first, int last)
