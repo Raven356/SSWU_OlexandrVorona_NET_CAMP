@@ -10,35 +10,23 @@
             MergeSort ob = new MergeSort();
 
             using StreamReader streamReader = new StreamReader("startFile.txt");
+
             int[] arr = new int[50];
-            for(int i = 0; i < 50; i++)
-            {
-                arr[i] = int.Parse(streamReader.ReadLine());
-            }
+
+            FileWorker.ReadPartFromFile(streamReader, arr);
+
             ob.Sort(arr, 0, arr.Length - 1);
 
-            StreamWriter streamWriter = new StreamWriter("firstPartResult.txt");
-            for(int i = 0; i < arr.Length; i++)
-            {
-                streamWriter.WriteLine(arr[i]);
-            }
+            FileWorker.WritePartInFile("firstPartResult.txt", arr);
 
-            streamWriter.Dispose();
+            FileWorker.ReadPartFromFile(streamReader, arr);
 
-            for(int i = 0; i < 50; i++)
-            {
-                arr[i] = int.Parse(streamReader.ReadLine()); ;
-            }
             ob.Sort(arr, 0, arr.Length - 1);
 
-            streamWriter = new StreamWriter("secondPartResult.txt");
-            for (int i = 0; i < arr.Length; i++)
-            {
-                streamWriter.WriteLine(arr[i]);
-            }
-            streamWriter.Dispose();
+            FileWorker.WritePartInFile("secondPartResult.txt", arr);
 
             streamReader.Dispose();
+
             ob.CreateResultFile(50, 50, "firstPartResult.txt", "secondPartResult.txt", "startFile.txt");
         }
     }

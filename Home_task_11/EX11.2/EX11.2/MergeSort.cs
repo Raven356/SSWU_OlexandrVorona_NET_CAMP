@@ -13,10 +13,13 @@
 
             for (i = 0; i < firstPartLength; ++i)
                 fileWriter.WriteLine(arr[start + i]);
+
             fileWriter.Dispose();
+
             fileWriter = new StreamWriter("secondPart.txt");
             for (j = 0; j < secondPartLength; ++j)
                 fileWriter.WriteLine(arr[middle + 1 + j]);
+
             fileWriter.Dispose();
 
             CreateResultFile(firstPartLength, secondPartLength, "firstPart.txt", "secondPart.txt", "tempResult.txt");
@@ -28,18 +31,14 @@
                 k++;
             }
             streamReader.Dispose();
-            FileInfo fileInfo = new FileInfo("tempResult.txt");
-            fileInfo.Delete();
+            FileWorker.DeleteFile("tempResult.txt");
         }
 
         public void Sort(int[] arr, int start, int end)
         {
             if (start < end)
             {
-
-
                 int middle = start + (end - start) / 2;
-
 
                 Sort(arr, start, middle);
                 Sort(arr, middle + 1, end);
@@ -94,10 +93,8 @@
             }
             firstPartReader.Dispose();
             secondPartReader.Dispose();
-            FileInfo fileInfo = new FileInfo(firstPartName);
-            fileInfo.Delete();
-            fileInfo = new FileInfo(secondPartName);
-            fileInfo.Delete();
+            FileWorker.DeleteFile(firstPartName);
+            FileWorker.DeleteFile(secondPartName);
         }
     }
 }
