@@ -34,7 +34,7 @@
             FileWorker.DeleteFile("tempResult.txt");
         }
 
-        public void Sort(int[] arr, int start, int end)
+        private void Sort(int[] arr, int start, int end)
         {
             if (start < end)
             {
@@ -47,7 +47,30 @@
             }
         }
 
-        public void CreateResultFile(int firstPartLength, int secondPartLength, string firstPartName
+        public void Sort100Array(string path)
+        {
+            using StreamReader streamReader = new StreamReader(path);
+
+            int[] arr = new int[50];
+
+            FileWorker.ReadPartFromFile(streamReader, arr);
+
+            Sort(arr, 0, arr.Length - 1);
+
+            FileWorker.WritePartInFile("firstPartResult.txt", arr);
+
+            FileWorker.ReadPartFromFile(streamReader, arr);
+
+            Sort(arr, 0, arr.Length - 1);
+
+            FileWorker.WritePartInFile("secondPartResult.txt", arr);
+
+            streamReader.Dispose();
+
+            CreateResultFile(50, 50, "firstPartResult.txt", "secondPartResult.txt", "startFile.txt");
+        }
+
+        private void CreateResultFile(int firstPartLength, int secondPartLength, string firstPartName
             , string secondPartName, string resultName)
         {
             using StreamWriter streamWriter = new StreamWriter(resultName);
